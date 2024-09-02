@@ -1,9 +1,9 @@
 @Smoke @Regression
-Feature: create account
+Feature: Create Primary Account
+
   Background: Create Account create Credentials and Login
     Given open browser and navigate to retail app
-    When click on Create Primary Account link
-
+    When click on Crate Primary Account link
 
   @Scenario_1
   Scenario: Create New Account and then login
@@ -27,5 +27,3 @@ Feature: create account
     Then click on Create Account button
     Then validate account error message
     Then close browser
-
-

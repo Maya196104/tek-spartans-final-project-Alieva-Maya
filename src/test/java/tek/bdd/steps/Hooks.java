@@ -8,7 +8,6 @@ import org.apache.logging.log4j.Logger;
 import tek.bdd.utility.SeleniumUtility;
 
 public class Hooks extends SeleniumUtility {
-
     private static final Logger LOGGER = LogManager.getLogger(Hooks.class);
     @Before
     public void beforeEachScenario(){

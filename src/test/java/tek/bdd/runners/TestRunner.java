@@ -8,17 +8,18 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = "classpath:features", // Directory for Feature file
-        glue = "tek.bdd.steps",//Package for all the steps
-        dryRun = false, //set to true to scan feature for unimplemented steps
+        features = "classpath:features",
+        glue = "tek.bdd.steps",
         tags = "@Smoke",
+        dryRun = false,
         monochrome = true,
         snippets = CucumberOptions.SnippetType.CAMELCASE,
         plugin = {
-                "html:target/cucumber_report/index.html"
+                "html:target/cucumber-report/report.html",
+                "pretty",
         }
 )
-public class TestRunner {
+public class TestRunner{
 }
 
 

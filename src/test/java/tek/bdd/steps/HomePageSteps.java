@@ -6,8 +6,7 @@ import io.cucumber.java.en.Then;
 
 import org.junit.Assert;
 
-import org.openqa.selenium.By;
-import tek.bdd.pages.HomePage;
+import tek.bdd.pages.HomePageObject;
 import tek.bdd.utility.SeleniumUtility;
 
 public class HomePageSteps extends SeleniumUtility {
@@ -17,38 +16,29 @@ public class HomePageSteps extends SeleniumUtility {
         openBrowser();
 
     }
-
     @Then("validate TEK Insurance UI is exist")
-    public void validate_Tek_Insurance_UI_is_Exist() {
-        String tekInsuranceText = getElementText(HomePage.TEK_INSURANCE_UI_TEXT);
+    public void validateTekInsuranceUiIsExist() {
+        String tekInsuranceText = getElementText(HomePageObject.TEK_INSURANCE_UI_TEXT);
         Assert.assertEquals("TEK Insurance App", tekInsuranceText);
-
+        System.out.println(tekInsuranceText);
 
     }
-
     @Then("validate Create Primary Account is exist")
     public void validateCreatePrimaryAccountIsExist() {
-        String createPrimaryAccountText = getElementText(HomePage.CREATE_PRIMARY_ACCOUNT_BUTTON);
-        Assert.assertEquals("Create Primary Account", createPrimaryAccountText);
+        String createPrimaryAccountText = getElementText(HomePageObject.CREATE_PRIMARY_ACCOUNT_BUTTON);
+        Assert.assertEquals("Create Primary Account",createPrimaryAccountText);
         System.out.println(createPrimaryAccountText);
 
     }
-
     @Then("validate Login button is enabled")
     public void validateLoginButtonIsEnabled() {
-        boolean loginBtnText = isElementIsEnabled(HomePage.LOGIN_BUTTON);
+        boolean loginBtnText = isElementIsEnabled(HomePageObject.LOGIN_BUTTON);
         Assert.assertTrue("Login button should be enabled", loginBtnText);
 
     }
-
     @Then("validate color mode button is displayed")
     public void validateColorModeButtonIsDisplayed() {
-        boolean colorModeOption = isElementIsDisplayed(HomePage.COLOR_MOOD_BUTTON);
+        boolean colorModeOption = isElementIsDisplayed(HomePageObject.COLOR_MOOD_BUTTON);
         Assert.assertTrue("Dark mode color button must be displayed", colorModeOption);
-    }
-
-    @Then("close the browser")
-    public void closeBrowser(){
-        quitBrowser();
     }
 }

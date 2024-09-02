@@ -3,7 +3,7 @@ package tek.bdd.pages;
 import org.openqa.selenium.By;
 import tek.bdd.utility.SeleniumUtility;
 
-public class PlansPage extends SeleniumUtility {
+public class PlansPageObject extends SeleniumUtility {
 
     public static final By PLANS_ICON = By.linkText("Plans");
     public static final By PLAN_TYPE = By.xpath("//th[text()='Plan Type']");

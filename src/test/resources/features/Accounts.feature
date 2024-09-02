@@ -1,21 +1,19 @@
 @Smoke @Regression
-Feature: Accounts Test
-Background: Login to account and setups
+Feature: Testing Account Section
 
-  Given open browser and navigate to retail app
-  Then click on login button
-  Then enter username "supervisor" and password "tek_supervisor"
-  Then click on sign in button
-  Then click on Accounts button
+  Background: open browser and navigate to retail app
+    Given open browser and navigate to retail app
+    Then click on login button
+    Then enter username "supervisor" and password "tek_supervisor"
+    Then click on sign in button
+    Then click on Accounts button
 
-
-
-  @AccountsScenario1
-  Scenario: Login with Customer Service Portal Credentials
+  @Accounts_Scenario_1
+  Scenario: Login with CSR Credentials
     Then validate Primary Accounts title is exist
     Then close browser
 
-  @AccountsScenario2
+  @Accounts_Scenario_2
   Scenario: Validate Primary Account Table
     When change item per page to "5"
     Then validate table row count to be 5
@@ -26,4 +24,3 @@ Background: Login to account and setups
     When change item per page to "50"
     Then validate table row count to be 50
     Then close browser
-

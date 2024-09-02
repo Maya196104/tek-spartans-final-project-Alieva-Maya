@@ -19,32 +19,31 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
 import java.util.List;
 
+
 public class SeleniumUtility extends BaseSetup {
     private static final Logger LOGGER = LogManager.getLogger(SeleniumUtility.class);
 
     private WebDriverWait getWait() {
-        return new WebDriverWait(getDriver(), Duration.ofSeconds(20));
+        return new WebDriverWait(getDriver(), Duration.ofSeconds(Constants.WAIT_IN_SECONDS));
     }
 
     private WebElement waitForVisibilityOf(By locator) {
         return getWait().until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
 
-    //create a method to click on a given Locator
     public void clickOnElement(By locator) {
-        getWait().until(ExpectedConditions.elementToBeClickable(locator))
-                .click();
+        getWait().until(ExpectedConditions.elementToBeClickable(locator)).click();
         LOGGER.info("Clicking on Element {}", locator);
     }
 
     public void sendText(By locator, String value) {
-        getWait().until(ExpectedConditions.visibilityOfElementLocated(locator))
-                .sendKeys(value);
         LOGGER.info("Clearing And Sending text {} to locator {}", value, locator);
         waitForVisibilityOf(locator).sendKeys(value);
+
     }
-    //Create method for getting the text of a locator
+
     public String getElementText(By locator) {
+        LOGGER.info("Get Element text {}", locator);
         return waitForVisibilityOf(locator).getText();
     }
 
